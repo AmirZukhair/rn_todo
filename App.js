@@ -8,46 +8,12 @@ import * as LocalAuthentification from 'expo-local-authentication'
 
 export default function App() {
 
-  {/*
-      const [isAuthenticated, setIsAuthenticated] = useState(false)
-    useEffect(()=> {
-    async function authenticate() {
-      const result = await LocalAuthentification.authenticateAsync();
-      setIsAuthenticated(result.success)
-    }
-    authenticate();
-    
-  }, []);
-  */}
-  
-
   
   const addItem = async () => {
-    try {
-      const iscompatible = await LocalAuthentification.authenticateAsync();
-      if(iscompatible.success){
         handleAddTask()
-        Alert.alert('successfully added')
-      }
-      
-    } 
-    catch(error){
-      Alert.alert('wrong credentials')
-    }
   }
 
-  const isAuthenticated = async () => {
-    try {
-      const iscompatible = await LocalAuthentification.authenticateAsync();
-      if(iscompatible.success){
-        Alert.alert('updated')
-      }
-      
-    } 
-    catch(error){
-      Alert.alert('wrong credentials')
-    }
-  }
+  
 
   const deleteItem = async (index) => {
     try {
@@ -108,7 +74,7 @@ export default function App() {
 {/*onPress={() => deleteItem(index)}*/}
               return(
                 <TouchableOpacity key={index} >
-                  <Task  text={item} deleteItem={deleteItem}  updateItem={updateItem} isAuthenticated={isAuthenticated} index={index}/>
+                  <Task  text={item} deleteItem={deleteItem}  updateItem={updateItem}  index={index}/>
                 </TouchableOpacity>
               ) 
             })

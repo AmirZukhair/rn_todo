@@ -17,7 +17,6 @@ const Task = (props) => {
                       style={styles.itemText}
                       onChangeText={text => props.updateItem(props.index,text) }
                       value={props.text} 
-                      onBlur={() => props.isAuthenticated()}
                     />
             </View>
           
